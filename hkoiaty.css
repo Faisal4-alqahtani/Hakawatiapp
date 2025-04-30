@@ -1,0 +1,190 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Cairo', sans-serif;
+    background-color: #3A2F73; /* لون الخلفية */
+    color: white; /* لون النص */
+    position: relative;
+    height: 100vh; /* ارتفاع الصفحة */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* محاذاة عمودية */
+    align-items: center; /* محاذاة أفقية */
+}
+
+.letter {
+    position: absolute;
+    top: -50px; /* بداية الأحرف الساقطة */
+    font-size: 24px;
+    opacity: 0.7;
+    animation: fall linear infinite; /* تأثير السقوط */
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh); /* حركة السقوط */
+    }
+}
+
+ #shareButton, .storyTypeButton, .storyLengthButton, #newStoryButton, #hideStoryButton {
+    padding: 10px 30px; /* تغيير الحشو الداخلي */
+    background-color: #6c63ff; /* تغيير لون الزر */
+    border: none; /* يمكنك إضافة إطار مثل border: 1px solid #ccc; */
+    border-radius: 5px; /* تغيير الزوايا الدائرية */
+    color: white; /* تغيير لون النص */
+    font-size: 16px; /* تغيير حجم الخط */
+    cursor: pointer; /* شكل المؤشر عند المرور */
+    margin-top: 10px; /* تغيير المسافة بين الأزرار */
+    transition: background-color 0.3s; /* تأثير الانتقال عند تغيير اللون */
+    font-family: 'Cairo', sans-serif; /* تغيير خط الكتابة */
+}
+
+#generateButton:hover, #shareButton:hover, .storyTypeButton:hover, .storyLengthButton:hover, #newStoryButton:hover, #hideStoryButton:hover {
+    background-color: #5a54e1; /* لون الزر عند المرور */
+}
+
+h1 {
+    text-align: center; /* محاذاة النص إلى الوسط */
+    font-size: 24px;
+}
+
+.input-container {
+    display: flex; /* استخدام Flexbox لجعل العناصر بجانب بعض */
+    align-items: center; /* محاذاة العناصر في الوسط عموديًا */
+    gap: 10px; /* مسافة بين العناصر */
+    margin-top: 20px; /* مسافة من أعلى الخانة */
+    
+    border-radius: 4px;
+}
+
+.input {
+    padding: 13px 10px; /* حشو داخلي */
+    font-size: 16px; /* حجم خط */
+    
+    border: #ffffff solid 1px;
+    border-radius: 4px 4px 4px 4px; /* زوايا دائرية */
+    flex: 1; /* جعل الحقل يأخذ المساحة المتاحة */
+    text-align: right;
+    
+    
+}
+
+.popup {
+    
+    display: none; /* إخفاء البوب أب بشكل افتراضي */
+    position: fixed; /* وضع ثابت */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* محاذاة المركز */
+    background: white; /* لون خلفية البوب أب */
+    color: black; /* لون النص */
+    padding: 30px; /* حشو */
+    border-radius: 8px; /* زوايا دائرية */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* ظل */
+    z-index: 1000; /* ترتيب الظهور */
+    text-align: center; /* محاذاة النص إلى الوسط */
+}
+
+.popup-background {
+    display: none; /* إخفاء الخلفية بشكل افتراضي */
+    position: fixed; /* وضع ثابت */
+    top: 0;
+    left: 0;
+    width: 100%; /* عرض كامل */
+    height: 100%; /* ارتفاع كامل */
+    z-index: 999; /* ترتيب الظهور */
+    flex-direction: column; /* ترتيب العناصر عمودياً */
+    align-items: center; /* محاذاة العناصر في الوسط */
+}
+
+#storyOutput {
+    margin-top: 20px; /* مسافة بين العناصر */
+    background: rgba(255, 255, 255, 0.2); /* لون خلفية منطقة القصة */
+    padding: 15px; /* حشو */
+    border-radius: 5px; /* زوايا دائرية */
+    width: 80%; /* عرض 80% من الصفحة */
+    max-width: 600px; /* أقصى عرض */
+    text-align: center; /* محاذاة النص إلى الوسط */
+    position: relative;
+    max-height: 300px; /* أقصى ارتفاع */
+    overflow-y: auto; /* تمرير عمودي */
+}
+
+#storyOutput::-webkit-scrollbar {
+    display: none; /* إخفاء شريط التمرير في Chrome وSafari */
+}
+
+#storyOutput {
+    scrollbar-width: none; /* إخفاء شريط التمرير في Firefox */
+}
+
+#logo {
+    position: absolute; /* وضع ثابت */
+    top: 20px;
+    right: 20px;
+    width: 100px; /* حجم الشعار */
+}
+
+#loading {
+    text-align: center;
+    display: none; /* إخفاء بشكل افتراضي */
+}
+
+.loader {
+    border-top: 8px solid #6c63ff; /* لون الجزء العلوي */
+    border-radius: 50%; /* شكل دائري */
+    width: 40px; /* عرض */
+    height: 40px; /* ارتفاع */
+    animation: spin 1s linear infinite; /* حركة الدوران */
+    margin: 20px auto; /* مركز */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); } /* دوران كامل */
+}
+
+a { color: bisque; } /* لون الروابط */
+
+.highlight {
+    background-color: rgb(171, 175, 193); /* لون التظليل */
+    border-radius: 5.5px; /* زوايا دائرية */
+    color: rgb(8, 23, 89); /* لون النص */
+}
+
+#helpButton {
+    position: fixed; /* وضع ثابت */
+    top: 20px;
+    left: 20px;
+    width: 100px; /* مساوي لحجم الشعار */
+    height: 40px; /* حجم الزر */
+    background-color: rgba(107, 99, 255, 0.135); /* شفاف */
+    border: none; /* بدون إطار */
+    border-radius: 5px; /* زوايا دائرية */
+    color: white; /* لون النص */
+    cursor: pointer; /* تغيير شكل المؤشر عند المرور */
+    transition: background-color 0.3s; /* تأثير الانتقال */
+    font-family: 'Cairo', sans-serif;
+}
+
+#helpButton:hover {
+    background-color: rgba(90, 84, 225, 0.7); /* لون الزر عند المرور */
+}
+
+.aboutlink { 
+    color: #113f8d; 
+}
+.button {
+    padding: 10px 20px; /* حشو داخلي */
+    background-color: rgba(90, 84, 225, 0.7); /* لون الزر */
+    color: white; /* لون النص */
+    border: none; /* بدون إطار */
+    border-radius: 4px 4px 4px 4px; /* زوايا دائرية */
+    cursor: pointer; /* شكل المؤشر */
+    
+}
+
+.button:hover {
+    background-color: #0056b3; /* لون الزر عند المرور */
+}

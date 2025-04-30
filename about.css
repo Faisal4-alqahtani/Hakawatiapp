@@ -1,0 +1,72 @@
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* تنظيم العناصر عمودياً */
+    height: 100vh;
+    font-family: 'Cairo', sans-serif; /* استخدام خط الكايرو */
+    background-image: url('college_of_telecom_information_cover.jpeg'); /* استخدام صورة الخلفية */
+    background-size: cover; /* تغطية الخلفية بالكامل */
+    position: relative; /* لجعل الطبقة السوداء فوق الخلفية */
+    overflow: hidden; /* لإخفاء أي محتوى زائد */
+}
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* طبقة سوداء مع شفافية */
+    z-index: 1; /* خلف المحتوى */
+}
+.header-container {
+    background-color: white; /* خلفية بيضاء */
+    border-radius: 20px; /* جعل الحواف منحنية */
+    padding: 20px; /* حشو حول الصورة */
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8); /* إضافة ظل */
+    width: 60%; /* عرض المربع */
+    max-width: 600px; /* الحد الأقصى للعرض */
+    margin-bottom: 20px; /* مسافة بين الهيدر والمحتوى */
+    position: relative; /* لجعل المربع فوق الطبقة السوداء */
+    z-index: 2; /* أمام الطبقة السوداء */
+}
+.header-image {
+    width: 100%; /* عرض الصورة بالكامل */
+    height: auto; /* ارتفاع تلقائي */
+    object-fit: cover; /* تغطية الصورة بشكل مناسب */
+    border-radius: 10px; /* حواف منحنية للصورة */
+}
+.banner {
+    display: flex;
+    flex-direction: column; /* تنظيم النص عمودياً */
+    align-items: center; /* محاذاة العناصر في المنتصف */
+    background-color: white;
+    border-radius: 20px; /* جعل الزوايا منحنية */
+    padding: 20px; /* زيادة الحشو */
+    width: 60%; /* عرض المربع */
+    max-width: 600px; /* الحد الأقصى للعرض */
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8); /* زيادة الحواف المضئية */
+    z-index: 2; /* أمام الطبقة السوداء */
+}
+.menu {
+    text-align: right; /* محاذاة النص لليمين */
+}
+.menu ul {
+    list-style: none; /* إزالة النقاط من القائمة */
+    padding: 0;
+    margin: 0;
+}
+.menu li {
+    margin: 10px 0; /* مسافة بين عناصر القائمة */
+    font-size: 16px; /* حجم الخط */
+    color: black;
+}
+.menu a {
+    text-decoration: none; /* إزالة الخط تحت الروابط */
+    color: #3A2F73; /* لون الروابط */
+    margin-right: 50px; /* مسافة بين الأيقونات */
+}
+i{color: black; font-size: 32px;}
+
